@@ -39,5 +39,16 @@ def query_by_category(category: str):
     for book in BOOKS:
         if book.get('category').casefold() == category.casefold():
             books_to_return.append(book)
+    return books_to_return
+
+# Path parameter & a query parameter
+@app.get("/books/{book_author}/")
+def query_by_category_and_author(book_author:str, category:str):
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('author').casefold() == book_author.casefold() and \
+            book.get('category').casefold() == category.casefold():
+
+            books_to_return.append(book)
 
     return books_to_return
