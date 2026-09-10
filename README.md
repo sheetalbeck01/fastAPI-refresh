@@ -9,3 +9,5 @@
 - Authorization
 - Unit & Integration testing 
 - Deploying
+
+*There is NOTES.md where I updated my learnings*
