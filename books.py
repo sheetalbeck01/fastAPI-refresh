@@ -31,3 +31,13 @@ def get_book(book_title: str): # Must be a string
     for book in BOOKS:
         if book.get('title').casefold() == book_title.casefold():
             return book
+
+# Query Parameters
+@app.get("/books/")
+def query_by_category(category: str):
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('category').casefold() == category.casefold():
+            books_to_return.append(book)
+
+    return books_to_return
