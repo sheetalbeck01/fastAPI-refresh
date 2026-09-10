@@ -23,3 +23,11 @@ BOOKS = [
 @app.get("/books")
 def get_all_books():
     return BOOKS
+
+
+# Path Parameters
+@app.get("/books/{book_title}")
+def get_book(book_title: str): # Must be a string
+    for book in BOOKS:
+        if book.get('title').casefold() == book_title.casefold():
+            return book
