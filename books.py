@@ -57,3 +57,10 @@ def query_by_category_and_author(book_author:str, category:str):
 @app.post("/books/create_book")
 def create_book(new_book=Body()):
     BOOKS.append(new_book)
+
+# Updating Books
+@app.put("/books/update_book")
+def update_book(update_book=Body()):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('title').casefold() == update_book.get('title').casefold():
+            BOOKS[i] = update_book
